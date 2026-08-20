@@ -1,0 +1,23 @@
+name: raycast-extension
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request_target:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run build
+      - name: Publish extension
+        run: npx @raycast/api@latest publish
+        env:
+          RAYCAST_API_TOKEN: ${{ secrets.RAYCAST_API_TOKEN }}
