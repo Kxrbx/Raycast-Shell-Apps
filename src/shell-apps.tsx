@@ -81,10 +81,19 @@ export default function Command(props: { arguments: CommandArguments }) {
   }
 
   async function handleDuplicate(app: ShellApp) {
+    const apps = await getApps();
+    const used = new Set(apps.map((item) => item.name.toLowerCase()));
+    const base = `${app.name} Copy`;
+    let name = base;
+    let counter = 2;
+    while (used.has(name.toLowerCase())) {
+      name = `${base} ${counter}`;
+      counter += 1;
+    }
     await upsertApp({
       ...app,
       id: randomUUID(),
-      name: `${app.name} Copy`,
+      name,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     });
