@@ -1,44 +1,64 @@
 # Shell Apps
 
-Create and launch your own shell command shortcuts as apps on Windows, right from Raycast.
+Turn any shell command into an app-like shortcut for Windows, right from Raycast. Give your most-used commands (`wsl`, `git`, `cliamp`, custom scripts...) a name, launch them in a dedicated terminal window, and pin them to the root search like real apps.
 
 ## Features
 
-- Create named shortcuts that run any shell command (for example `cliamp`)
-- Launch each shortcut in a dedicated terminal window: **PowerShell**, **PowerShell 7**, **Command Prompt**, or **Windows Terminal**
-- Optional working directory, keep-window-open, and run-as-administrator (UAC) options
-- Turn any shortcut into an app-like **Quicklink** in the root search, and assign it a hotkey
-- All data is stored locally on your machine (Raycast's local storage)
+- **Named shortcuts** — create a shortcut for any shell command, for example `wsl cliamp`.
+- **Your choice of terminal** — launch in PowerShell, PowerShell 7, Command Prompt, or Windows Terminal.
+- **Launch options** — optional working directory, keep the window open after the command exits, or run elevated (UAC prompt).
+- **App-like Quicklinks** — turn any shortcut into a pinned entry in the root search, with optional hotkey.
+- **Private by design** — all data is stored locally in Raycast's local storage. Nothing is sent to the network.
+- **Works in any environment** — commands run with your full user `PATH`, so tools like `wsl` and anything in your profile resolve correctly even when launched from Raycast's sandboxed extension host.
 
-## How to use
+## Install
 
-1. Install the extension from the Raycast Store.
-2. Open the **Shell Apps** command.
-3. Select **Create Shell App** (or press `⌘` `N`) to add a shortcut:
-   - **Name** – the display name, for example `cliamp`.
-   - **Command** – the shell command to run, for example `cliamp`.
-   - **Terminal** – the terminal used to launch the command.
-   - **Working Directory** – optional directory the command runs in.
-   - **Keep the terminal window open** – keep the window open after the command exits.
-   - **Run as administrator** – launch the terminal elevated (triggers a UAC prompt).
-4. Select a shortcut and press `↵` to launch it.
+Install **Shell Apps** from the Raycast Store.
 
-To make a shortcut behave like a real app, select **Create Quicklink**: a named entry appears in the
-root search (for example `cliamp`) that launches the command directly. You can also assign it a
-hotkey from Raycast's Quicklinks preferences.
+## Quick start
+
+1. Open the **Shell Apps** command.
+2. Press `⌘` `N` to create your first shortcut:
+   - **Name** — the display name, for example `cliamp`.
+   - **Command** — the shell command to run, for example `cliamp`.
+   - **Terminal** — the terminal used to launch the command in a new window.
+   - **Working Directory** — optional. The directory the command runs in.
+   - **Keep the terminal window open** — keep the window open after the command exits.
+   - **Run as administrator** — launch the terminal elevated (triggers a UAC prompt).
+3. Select the shortcut and press `↵` to launch it in a terminal window.
+
+### Make it feel like a real app
+
+On any shortcut, use **Create Quicklink**. A named entry (for example `cliamp`) appears in the root
+search and launches the command directly — no need to open the extension first. From the Quicklinks
+preferences you can also assign it a hotkey, so `⌥ Space → cliamp` or a keyboard shortcut starts it.
 
 ## Commands
 
-- **Shell Apps** – manage and launch your shortcuts. When launched with the `app` argument (via a
-  Quicklink) it launches the shortcut directly.
-- **Create Shell App** – add a new shortcut.
+| Command | Description |
+| --- | --- |
+| **Shell Apps** | List, search, launch, edit, duplicate, and delete your shortcuts. When launched with the `app` argument (via a Quicklink) it launches the shortcut directly. |
+| **Create Shell App** | Add a new shortcut with name, command, terminal, and launch options. |
+
+## Preferences
+
+| Preference | Type | Default | Description |
+| --- | --- | --- | --- |
+| **Default Terminal** | Dropdown | PowerShell | Terminal used by default when creating a new shortcut. |
+| **Keep Window Open** | Checkbox | Enabled | Keep the terminal window open after the command exits, by default. |
+
+## Security
+
+Shortcuts are arbitrary shell commands that run locally as your user, exactly as if you typed them in
+a terminal. Only create shortcuts for commands you trust.
 
 ## Troubleshooting
 
-- **The command is not found** – commands are resolved with your user `PATH`. Make sure the tool is
-  installed and added to `PATH`, then try again.
-- **Windows Terminal unavailable** – the extension automatically falls back to PowerShell when
-  `wt.exe` is not installed.
-- **Quicklinks created before publishing** – quicklinks created while the extension is in
-  development point to the development path. Re-create them after installing the extension from the
-  Store.
+- **The command is not found** — commands are resolved with your user `PATH`. Make sure the tool is installed and added to `PATH`, then launch again.
+- **Windows Terminal unavailable** — the extension automatically falls back to PowerShell when `wt.exe` is not installed.
+- **Run as administrator does nothing** — UAC is disabled for the command or the account; re-enable UAC or use a standard user account.
+- **Quicklinks created during development** — quicklinks made while the extension is in development point to the development path. Re-create them after installing the extension from the Store.
+
+## License
+
+MIT
