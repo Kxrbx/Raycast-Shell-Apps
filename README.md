@@ -33,6 +33,14 @@ On any shortcut, use **Create Quicklink**. A named entry (for example `My App`) 
 search and launches the command directly — no need to open the extension first. From the Quicklinks
 preferences you can also assign it a hotkey, so `⌥ Space → My App` or a keyboard shortcut starts it.
 
+## Screenshots
+
+![Shell Apps list](media/Screenshot1.png)
+
+![Create Shell App form](media/Screenshot2.png)
+
+![Launch a shortcut in a terminal](media/Screenshot3.png)
+
 ## Commands
 
 | Command | Description |
