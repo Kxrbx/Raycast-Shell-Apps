@@ -2,6 +2,8 @@
 
 Turn any shell command into an app-like shortcut for Windows, right from Raycast. Give your most-used commands (`npm run build`, `git status`, `wsl`, custom scripts...) a name, launch them in a dedicated terminal window, and pin them to the root search like real apps.
 
+![Shell Apps list](media/Screenshot1.png)
+
 ## Features
 
 - **Named shortcuts** — create a shortcut for any shell command, for example `npm run build`.
