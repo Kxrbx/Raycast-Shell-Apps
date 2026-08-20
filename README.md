@@ -1,10 +1,10 @@
 # Shell Apps
 
-Turn any shell command into an app-like shortcut for Windows, right from Raycast. Give your most-used commands (`wsl`, `git`, `cliamp`, custom scripts...) a name, launch them in a dedicated terminal window, and pin them to the root search like real apps.
+Turn any shell command into an app-like shortcut for Windows, right from Raycast. Give your most-used commands (`npm run build`, `git status`, `wsl`, custom scripts...) a name, launch them in a dedicated terminal window, and pin them to the root search like real apps.
 
 ## Features
 
-- **Named shortcuts** — create a shortcut for any shell command, for example `wsl cliamp`.
+- **Named shortcuts** — create a shortcut for any shell command, for example `npm run build`.
 - **Your choice of terminal** — launch in PowerShell, PowerShell 7, Command Prompt, or Windows Terminal.
 - **Launch options** — optional working directory, keep the window open after the command exits, or run elevated (UAC prompt).
 - **App-like Quicklinks** — turn any shortcut into a pinned entry in the root search, with optional hotkey.
@@ -19,8 +19,8 @@ Install **Shell Apps** from the Raycast Store.
 
 1. Open the **Shell Apps** command.
 2. Press `⌘` `N` to create your first shortcut:
-   - **Name** — the display name, for example `cliamp`.
-   - **Command** — the shell command to run, for example `cliamp`.
+   - **Name** — the display name, for example `My App`.
+   - **Command** — the shell command to run, for example `npm run build`.
    - **Terminal** — the terminal used to launch the command in a new window.
    - **Working Directory** — optional. The directory the command runs in.
    - **Keep the terminal window open** — keep the window open after the command exits.
@@ -29,9 +29,9 @@ Install **Shell Apps** from the Raycast Store.
 
 ### Make it feel like a real app
 
-On any shortcut, use **Create Quicklink**. A named entry (for example `cliamp`) appears in the root
+On any shortcut, use **Create Quicklink**. A named entry (for example `My App`) appears in the root
 search and launches the command directly — no need to open the extension first. From the Quicklinks
-preferences you can also assign it a hotkey, so `⌥ Space → cliamp` or a keyboard shortcut starts it.
+preferences you can also assign it a hotkey, so `⌥ Space → My App` or a keyboard shortcut starts it.
 
 ## Commands
 
