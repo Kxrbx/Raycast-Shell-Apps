@@ -13,7 +13,6 @@
     {
       "name": "shell-apps",
       "title": "Shell Apps",
-      "subtitle": "Launch your shell shortcuts",
       "description": "Manage and launch your shell command shortcuts",
       "mode": "view",
       "arguments": [

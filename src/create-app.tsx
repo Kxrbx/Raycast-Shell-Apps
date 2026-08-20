@@ -121,7 +121,7 @@ export default function CreateAppForm({ app, onSaved }: Props) {
       <Form.TextField
         id="name"
         title="Name"
-        placeholder="cliamp"
+        placeholder="My App"
         value={name}
         onChange={setName}
         info="The display name of your shortcut. Used for the Quicklink name."
@@ -129,7 +129,7 @@ export default function CreateAppForm({ app, onSaved }: Props) {
       <Form.TextField
         id="command"
         title="Command"
-        placeholder="cliamp --config"
+        placeholder="npm run build"
         value={command}
         onChange={setCommand}
         info="The shell command to run. Resolved with your user PATH."
