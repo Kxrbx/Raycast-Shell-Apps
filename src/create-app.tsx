@@ -28,13 +28,9 @@ export default function CreateAppForm({ app, onSaved }: Props) {
 
   const [name, setName] = useState(app?.name ?? "");
   const [command, setCommand] = useState(app?.command ?? "");
-  const [terminal, setTerminal] = useState<string>(
-    app?.terminal ?? preferences.defaultTerminal ?? "powershell",
-  );
+  const [terminal, setTerminal] = useState<string>(app?.terminal ?? preferences.defaultTerminal ?? "powershell");
   const [workingDirectory, setWorkingDirectory] = useState(app?.workingDirectory ?? "");
-  const [keepOpen, setKeepOpen] = useState<boolean>(
-    app?.keepOpen ?? preferences.defaultKeepOpen ?? true,
-  );
+  const [keepOpen, setKeepOpen] = useState<boolean>(app?.keepOpen ?? preferences.defaultKeepOpen ?? true);
   const [runAsAdmin, setRunAsAdmin] = useState<boolean>(app?.runAsAdmin ?? false);
   const [icon, setIcon] = useState<string>(app?.icon ?? "Terminal");
 
@@ -94,8 +90,7 @@ export default function CreateAppForm({ app, onSaved }: Props) {
       await showToast({
         style: Toast.Style.Success,
         title: "Created",
-        message:
-          "Now pin it in Raycast: open Shell Apps and use Create Quicklink on your shortcut.",
+        message: "Now pin it in Raycast: open Shell Apps and use Create Quicklink on your shortcut.",
       });
     }
     pop();
@@ -106,10 +101,7 @@ export default function CreateAppForm({ app, onSaved }: Props) {
       navigationTitle={isEditing ? "Edit Shell App" : "Create Shell App"}
       actions={
         <ActionPanel>
-          <Action.SubmitForm
-            title={isEditing ? "Save Changes" : "Create Shell App"}
-            onSubmit={handleSubmit}
-          />
+          <Action.SubmitForm title={isEditing ? "Save Changes" : "Create Shell App"} onSubmit={handleSubmit} />
         </ActionPanel>
       }
     >

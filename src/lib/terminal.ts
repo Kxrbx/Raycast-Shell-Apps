@@ -8,9 +8,7 @@ import type { ShellApp, TerminalKind } from "./types";
 const WINDIR = process.env.SystemRoot || process.env.WINDIR || "C:\\Windows";
 const POWERSHELL = `${WINDIR}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`;
 const CMD = `${WINDIR}\\System32\\cmd.exe`;
-const POWERSHELL7 = process.env.ProgramFiles
-  ? `${process.env.ProgramFiles}\\PowerShell\\7\\pwsh.exe`
-  : "pwsh.exe";
+const POWERSHELL7 = process.env.ProgramFiles ? `${process.env.ProgramFiles}\\PowerShell\\7\\pwsh.exe` : "pwsh.exe";
 const WT = "wt.exe";
 
 function psQuote(value: string): string {
@@ -108,11 +106,7 @@ const RESTORE_PATH = [
   `$env:PATH = (@("$__spa_sys\\System32;$__spa_sys", $__spa_mp, $__spa_up, $env:PATH) | Where-Object { $_ }) -join ';'`,
 ].join(" ");
 
-function buildLauncherScript(
-  app: ShellApp,
-  resultFile: string,
-  cmdFilePath: string,
-): LauncherScript {
+function buildLauncherScript(app: ShellApp, resultFile: string, cmdFilePath: string): LauncherScript {
   const writeError = `Set-Content -LiteralPath ${psQuote(resultFile)} -Value $_.Exception.Message`;
   const wd = app.workingDirectory?.trim();
   const elevated = app.runAsAdmin;
@@ -153,9 +147,7 @@ function buildLauncherScript(
   }
 
   const script = `${RESTORE_PATH}; ${body}`;
-  return viaCmdFile
-    ? { script, cmdFile: { path: cmdFilePath, content: buildCmdFile(app) } }
-    : { script };
+  return viaCmdFile ? { script, cmdFile: { path: cmdFilePath, content: buildCmdFile(app) } } : { script };
 }
 
 /**

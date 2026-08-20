@@ -127,11 +127,7 @@ export default function Command(props: { arguments: CommandArguments }) {
   });
 
   return (
-    <List
-      isLoading={apps === null}
-      searchBarPlaceholder="Search shell apps…"
-      onSearchTextChange={setSearchText}
-    >
+    <List isLoading={apps === null} searchBarPlaceholder="Search shell apps…" onSearchTextChange={setSearchText}>
       {filtered.map((app) => (
         <List.Item
           key={app.id}
@@ -193,11 +189,7 @@ export default function Command(props: { arguments: CommandArguments }) {
           description="Create your first shell command shortcut"
           actions={
             <ActionPanel>
-              <Action.Push
-                title="Create Shell App"
-                icon={Icon.Plus}
-                target={<CreateAppForm onSaved={reload} />}
-              />
+              <Action.Push title="Create Shell App" icon={Icon.Plus} target={<CreateAppForm onSaved={reload} />} />
             </ActionPanel>
           }
         />
